@@ -6,12 +6,81 @@ class Amit implements Runnable {
     public void run() {
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(10);
+        arr.add(20);
+        arr.add(30);
+        arr.add(40);
+        arr.add(50);
 
         for (int ans : arr) {
             try {
                 Thread.sleep(1000);
                 System.out.println("[Amit] " + ans);
             } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+}
+
+class Kashish implements Runnable {
+
+    @Override
+    public void run() {
+        int n = 6;
+
+        
+        for (int i = n / 2; i <= n; i += 2) {
+            for (int j = 1; j < n - i; j += 2) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        
+        for (int i = n; i >= 1; i--) {
+            for (int j = i; j < n; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= (i * 2) - 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            
+            
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+}
+
+
+class Adarsh implements Runnable {
+
+    @Override
+    public void run(){
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Ka");
+        list.add("Haal");
+        list.add("Ba");
+        list.add("Ho....");
+
+        for(String s : list){
+            try{
+                Thread.sleep(1000);
+                System.out.println("[Adarsh]" + s);
+            } catch(Exception ex){
                 ex.printStackTrace();
             }
         }
@@ -99,7 +168,8 @@ public class InnerStudent implements Runnable {
             System.out.println("2. Run Abhishek Task");
             System.out.println("3. Run Dinesh Task");
             System.out.println("4. Run Amit Task");
-            // System.out.println("5. Run Future Task"); // Add menu item here for future cases
+            System.out.println("5. Run Adarsh Task"); 
+            System.out.println("6. To See kashish DIL");
             System.out.println("0. Exit Application");
             System.out.print("Enter your choice: ");
             
@@ -127,12 +197,17 @@ public class InnerStudent implements Runnable {
                     new Thread(new Amit()).start();
                     break;
 
-                /* TEMPLATE FOR FUTURE CASES:
+                
                 case 5:
-                    System.out.println("--> Starting Future Thread...");
-                    new Thread(new YourFutureRunnableClass()).start();
+                    System.out.println("--> Starting Adarsh Thread...");
+                    new Thread(new Adarsh()).start();
                     break;
-                */
+
+                case 6:
+                    System.out.println("--> Starting Kashish Thread...");
+                    new Thread(new Kashish()).start();
+                    break;
+                    
 
                 case 0:
                     System.out.println("Exiting application...");

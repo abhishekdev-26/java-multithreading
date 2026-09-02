@@ -57,7 +57,7 @@ class Kashish implements Runnable {
             
             
             try {
-                Thread.sleep(500);
+                Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
@@ -218,7 +218,7 @@ public class InnerStudent implements Runnable {
                     break;
             }
 
-        } while (choice != 0);
+        } while (choice != 6);
 
         sc.close();
     }
